@@ -58,7 +58,7 @@ func (m *StateMachineInstance) EvaluateCurrent() (stop bool) {
 	} else {
 		m.CurrentState = 0
 	}
-	return cont
+	return !cont
 }
 
 // EvaluateRecursively repeatedly calls EvaluateCurrent

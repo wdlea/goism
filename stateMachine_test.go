@@ -41,18 +41,23 @@ func Test_all(t *testing.T) {
 
 	instance := schema.CreateInstance(false)
 
-	instance.EvaluateCurrent()
+	stop := instance.EvaluateCurrent()
 
 	if foo != 69 {
 		t.Fatalf("Invalid foo value, initial state not effective")
 	}
+	if stop {
+		t.Fatalf("Machine stopped too soon")
+	}
 
-	stop := instance.EvaluateCurrent()
+	stop = instance.EvaluateCurrent()
+
+	if foo != 7 {
+		t.Fatalf("Invalid foo value, second state not effective")
+	}
 
 	if !stop {
 		t.Fatalf("State machine has no brakes")
 	}
-	if foo != 7 {
-		t.Fatalf("Invalid foo value, second state not effective")
-	}
+
 }

@@ -36,8 +36,9 @@ func (s *State) SelectNext(result Action) (cont bool, next StateID) {
 		}
 	default:
 		{
-			cont = len(s.NextStates) > int(result)
-			next = s.NextStates[int(result)]
+			t_next := int(result) - int(Action_Next)
+			cont = len(s.NextStates) > t_next
+			next = s.NextStates[t_next]
 		}
 	}
 	return
