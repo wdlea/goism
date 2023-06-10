@@ -47,7 +47,7 @@ func Test_all(t *testing.T) {
 		t.Fatalf("Invalid foo value, initial state not effective")
 	}
 	if stop {
-		t.Fatalf("Machine stopped too soon")
+		t.Fatalf("Machine stopped too soon ")
 	}
 
 	stop = instance.EvaluateCurrent()

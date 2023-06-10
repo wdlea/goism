@@ -9,6 +9,15 @@ const (
 	Action_Next
 )
 
+// A state is one "Node" in a flowchart
+// representation of the machine. The
+// NextStates are called based on the returned
+// Action from the call minus Action_Next
+// use the constant instead of the value to
+// allow for more enum values to be added.
+// For example returning Action_Next + 1
+// would call the state with the ID in
+// index 1 of the slice.
 type State struct {
 	ID StateID
 
@@ -17,10 +26,14 @@ type State struct {
 	NextStates []StateID
 }
 
+// Evaluate runs the State and returns the action. NOTE that
+// this will not advance or change the machine in any way.
 func (s *State) Evaluate() (result Action) {
 	return s.Call()
 }
 
+// SelectNext returns the next StateID or whether to
+// continue running(cont) based on the action.
 func (s *State) SelectNext(result Action) (cont bool, next StateID) {
 	switch result {
 	case Action_Repeat:
