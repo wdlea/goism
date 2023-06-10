@@ -61,7 +61,7 @@ func (m *StateMachineInstance) EvaluateCurrent() (stop bool) {
 	return cont
 }
 
-// EvaluateRecursively repeatedly calls
+// EvaluateRecursively repeatedly calls EvaluateCurrent
 func (m *StateMachineInstance) EvaluateRecursively(stopCallResets bool) {
 	for {
 		stop := m.EvaluateCurrent()
