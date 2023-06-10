@@ -3,8 +3,7 @@
 
 Goism is an implementation of the Infinite State Machine in go. It has support for runtime modification. An infinite state machine is defined as
 
->  In general an ISM can be thought of or illustrated as a binary decision tree for any organization, system, or algorithm which **undergoes runtime modification** and/or has no finite end state. 
--[wiki.c2.com](https://wiki.c2.com)(10/06/23)
+>  An Infinite State machine is a state machine with an infinite amount of posible states. This can occur when new states are added by other states. An example of this is a game of chess, each move adds more possible moves.
 
 ## Example Code
 
